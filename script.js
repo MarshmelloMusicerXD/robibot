@@ -169,6 +169,7 @@ function generateBubbles() {
 /* ================================================= */
 
 let currentSlide = 0;
+let slideAutoPlay;
 
 function initializeSlider() {
 
@@ -212,17 +213,62 @@ function initializeSlider() {
 
       updateSlide();
 
+      resetAutoPlay();
+
     });
 
     dotsContainer.appendChild(dot);
 
   });
 
+  /* Create Navigation Buttons */
+
+  const sliderContainer = document.querySelector(".feature-slider-container");
+
+  const navContainer = document.createElement("div");
+  navContainer.className = "slider-nav";
+
+  const prevBtn = document.createElement("button");
+  prevBtn.className = "slider-btn";
+  prevBtn.innerHTML = "❮";
+  prevBtn.addEventListener("click", () => {
+    currentSlide--;
+    if (currentSlide < 0) {
+      currentSlide = features.length - 1;
+    }
+    updateSlide();
+    resetAutoPlay();
+  });
+
+  const nextBtn = document.createElement("button");
+  nextBtn.className = "slider-btn";
+  nextBtn.innerHTML = "❯";
+  nextBtn.addEventListener("click", () => {
+    currentSlide++;
+    if (currentSlide >= features.length) {
+      currentSlide = 0;
+    }
+    updateSlide();
+    resetAutoPlay();
+  });
+
+  navContainer.appendChild(prevBtn);
+  navContainer.appendChild(dotsContainer);
+  navContainer.appendChild(nextBtn);
+
+  sliderContainer.appendChild(navContainer);
+
   updateSlide();
 
-  /* Auto Slide Every 3 Seconds */
+  /* Auto Slide Every 5 Seconds */
 
-  setInterval(() => {
+  startAutoPlay();
+
+}
+
+function startAutoPlay() {
+
+  slideAutoPlay = setInterval(() => {
 
     currentSlide++;
 
@@ -232,7 +278,15 @@ function initializeSlider() {
 
     updateSlide();
 
-  }, 3000);
+  }, 5000);
+
+}
+
+function resetAutoPlay() {
+
+  clearInterval(slideAutoPlay);
+
+  startAutoPlay();
 
 }
 
@@ -259,26 +313,33 @@ function updateSlide() {
 
   if (!feature) return;
 
-  /* Fade Out */
+  /* Slide Out Animation */
 
   image.style.opacity = "0";
   title.style.opacity = "0";
   description.style.opacity = "0";
 
+  image.style.transform = "translateX(-20px)";
+  title.style.transform = "translateX(-20px)";
+  description.style.transform = "translateX(-20px)";
+
   setTimeout(() => {
 
-    image.src =
-      feature.image;
+    image.src = feature.image;
 
-    title.textContent =
-      feature.title;
+    title.textContent = feature.title;
 
-    description.textContent =
-      feature.description;
+    description.textContent = feature.description;
+
+    /* Slide In Animation */
 
     image.style.opacity = "1";
     title.style.opacity = "1";
     description.style.opacity = "1";
+
+    image.style.transform = "translateX(0)";
+    title.style.transform = "translateX(0)";
+    description.style.transform = "translateX(0)";
 
   }, 200);
 
@@ -367,36 +428,33 @@ function generateSparkles() {
     sparkle.style.fontSize =
       `${12 + Math.random() * 12}px`;
 
+    /* Random position around the text */
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 60 + Math.random() * 40;
+    const offsetX = Math.cos(angle) * distance;
+    const offsetY = Math.sin(angle) * distance;
+
     sparkle.style.left =
-      `${target.offsetLeft + (Math.random() * target.offsetWidth)}px`;
+      `${target.offsetLeft + target.offsetWidth / 2 + offsetX}px`;
 
     sparkle.style.top =
-      `${target.offsetTop - 20 + (Math.random() * 50)}px`;
+      `${target.offsetTop + target.offsetHeight / 2 + offsetY}px`;
 
-    sparkle.style.background =
-      "linear-gradient(90deg,#0025fd,#011491)";
-
-    sparkle.style.webkitBackgroundClip =
-      "text";
-
-    sparkle.style.webkitTextFillColor =
-      "transparent";
+    sparkle.style.color =
+      "#0025fd";
 
     sparkle.style.opacity =
       "0";
 
     sparkle.style.transition =
-      "all 1.5s ease";
+      "opacity 0.8s ease-in-out";
 
     parent.appendChild(sparkle);
 
     requestAnimationFrame(() => {
 
       sparkle.style.opacity =
-        "1";
-
-      sparkle.style.transform =
-        "translateY(-20px) scale(1.2)";
+        Math.random() * 0.8 + 0.2;
 
     });
 
@@ -405,43 +463,17 @@ function generateSparkles() {
       sparkle.style.opacity =
         "0";
 
-      sparkle.style.transform =
-        "translateY(-40px) scale(0.7)";
-
-    }, 900);
+    }, 1200 + Math.random() * 800);
 
     setTimeout(() => {
 
       sparkle.remove();
 
-    }, 1800);
+    }, 2000);
 
-  }, 500);
+  }, 400);
 
 }
-
-/* ================================================= */
-/* FOOTER LINKS                                      */
-/* ================================================= */
-
-const footerLinks =
-  document.querySelectorAll(
-    ".footer-links a"
-  );
-
-footerLinks.forEach(link => {
-
-  const text =
-    link.textContent.trim();
-
-  if (text === "Discord") {
-
-    link.href =
-      supportLink;
-
-  }
-
-});
 
 /* ================================================= */
 /* OPTIONAL CONSOLE MESSAGE                          */
