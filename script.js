@@ -341,82 +341,77 @@ function initializeScrollAnimations() {
 
 function generateSparkles() {
 
-  const target =
-    document.getElementById("robi-text");
+    const target =
+        document.getElementById("robi-text");
 
-  if (!target) return;
+    if (!target) return;
 
-  const parent =
-    target.parentElement;
+    const hero =
+        target.parentElement;
 
-  if (!parent) return;
+    setInterval(() => {
 
-  setInterval(() => {
+        const sparkle =
+            document.createElement("span");
 
-    const sparkle =
-      document.createElement("span");
+        sparkle.innerHTML = "✦";
 
-    sparkle.innerHTML = "✦";
+        sparkle.style.position =
+            "absolute";
 
-    sparkle.style.position =
-      "absolute";
+        sparkle.style.pointerEvents =
+            "none";
 
-    sparkle.style.pointerEvents =
-      "none";
+        sparkle.style.fontSize =
+            `${10 + Math.random() * 10}px`;
 
-    sparkle.style.fontSize =
-      `${12 + Math.random() * 12}px`;
+        const offsetX =
+            (Math.random() * 160) - 80;
 
-    sparkle.style.left =
-      `${target.offsetLeft + (Math.random() * target.offsetWidth)}px`;
+        const offsetY =
+            (Math.random() * 80) - 40;
 
-    sparkle.style.top =
-      `${target.offsetTop - 20 + (Math.random() * 50)}px`;
+        sparkle.style.left =
+            `${target.offsetLeft + target.offsetWidth / 2 + offsetX}px`;
 
-    sparkle.style.background =
-      "linear-gradient(90deg,#0025fd,#011491)";
+        sparkle.style.top =
+            `${target.offsetTop + offsetY}px`;
 
-    sparkle.style.webkitBackgroundClip =
-      "text";
+        sparkle.style.background =
+            "linear-gradient(90deg,#0025fd,#011491)";
 
-    sparkle.style.webkitTextFillColor =
-      "transparent";
+        sparkle.style.webkitBackgroundClip =
+            "text";
 
-    sparkle.style.opacity =
-      "0";
+        sparkle.style.webkitTextFillColor =
+            "transparent";
 
-    sparkle.style.transition =
-      "all 1.5s ease";
+        sparkle.style.opacity = "0";
 
-    parent.appendChild(sparkle);
+        sparkle.style.transition =
+            "opacity 0.8s ease";
 
-    requestAnimationFrame(() => {
+        hero.appendChild(sparkle);
 
-      sparkle.style.opacity =
-        "1";
+        requestAnimationFrame(() => {
 
-      sparkle.style.transform =
-        "translateY(-20px) scale(1.2)";
+            sparkle.style.opacity = "1";
 
-    });
+        });
 
-    setTimeout(() => {
+        setTimeout(() => {
 
-      sparkle.style.opacity =
-        "0";
+            sparkle.style.opacity = "0";
 
-      sparkle.style.transform =
-        "translateY(-40px) scale(0.7)";
+        }, 800);
 
-    }, 900);
+        setTimeout(() => {
 
-    setTimeout(() => {
+            sparkle.remove();
 
-      sparkle.remove();
+        }, 1600);
 
-    }, 1800);
-
-  }, 500);
+    }, 350);
 
 }
 
