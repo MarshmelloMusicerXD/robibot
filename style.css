@@ -220,14 +220,11 @@ body {
 /* ================================================= */
 
 .gradient-text {
-
     background: linear-gradient(
         90deg,
         #0025fd,
         #011491
     );
-
-    background-size: 200% 200%;
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -235,19 +232,36 @@ body {
     display: inline-block;
 
     animation:
-        gradientRotate 8s linear infinite;
+        heroRotate 10s linear infinite,
+        heroFloat 4s ease-in-out infinite;
 }
 
-@keyframes gradientRotate {
-
+@keyframes heroRotate {
     0% {
-        filter: hue-rotate(0deg);
+        transform: rotate(-1deg);
+    }
+
+    50% {
+        transform: rotate(1deg);
     }
 
     100% {
-        filter: hue-rotate(360deg);
+        transform: rotate(-1deg);
+    }
+}
+
+@keyframes heroFloat {
+    0% {
+        transform: translateY(0px);
     }
 
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .hero-description {
