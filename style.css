@@ -220,44 +220,34 @@ body {
 /* ================================================= */
 
 .gradient-text {
+
     background: linear-gradient(
         90deg,
         #0025fd,
         #011491
     );
 
+    background-size: 200% 200%;
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
     display: inline-block;
+
+    animation:
+        gradientRotate 8s linear infinite;
 }
 
-@keyframes heroRotate {
-    0% {
-        transform: rotate(-1deg);
-    }
+@keyframes gradientRotate {
 
-    50% {
-        transform: rotate(1deg);
+    0% {
+        filter: hue-rotate(0deg);
     }
 
     100% {
-        transform: rotate(-1deg);
-    }
-}
-
-@keyframes heroFloat {
-    0% {
-        transform: translateY(0px);
+        filter: hue-rotate(360deg);
     }
 
-    50% {
-        transform: translateY(-8px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
 }
 
 .hero-description {
