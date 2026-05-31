@@ -5,7 +5,7 @@
 
 /* Bot Logo URL */
 const logoUrl =
-  "https://placehold.co/600x600/png";
+  "https://cdn.discordapp.com/attachments/1045064396726083675/1068646904294031400/OuO.png?ex=6a1d53bc&is=6a1c023c&hm=18e0dbd3fb3aafed2675696d614efd592720922eafe617b02800226fd6b9c69b&";
 
 /* Invite Button Link */
 const inviteLink =
