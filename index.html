@@ -1,318 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Basic Page Settings -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ============================================================ -->
+  <!-- META & DOCUMENT SETUP -->
+  <!-- ============================================================ -->
 
-    <!-- Website Title -->
-    <title>Robi | Discord All-in-One Bot</title>
+  <!-- Character encoding for all text -->
+  <meta charset="UTF-8" />
 
-    <!-- Website Description -->
-    <meta name="description"
-        content="Robi is a powerful Discord all-in-one bot with moderation, music, automation, utilities, and more.">
+  <!-- Makes the page responsive on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="style.css">
+  <!-- Browser tab title — change "Robi" to your bot's name if renamed -->
+  <title>Robi — All-in-One Discord Bot</title>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- ============================================================ -->
+  <!-- SEO META TAGS -->
+  <!-- Add/edit these to improve search engine visibility -->
+  <!-- ============================================================ -->
 
-    <!-- Font Family -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+  <!-- Short description shown in Google search results -->
+  <meta name="description" content="Robi is a powerful all-in-one Discord bot with moderation, music, fun, and more." />
+
+  <!-- Keywords for search engines (optional but helpful) -->
+  <meta name="keywords" content="Discord bot, Robi, all-in-one bot, moderation, music, fun" />
+
+  <!-- Author of the website -->
+  <meta name="author" content="Robi Bot Team" />
+
+  <!-- ============================================================ -->
+  <!-- OPEN GRAPH (Social Media Preview) -->
+  <!-- These control how the link looks when shared on Discord, Twitter, etc. -->
+  <!-- ============================================================ -->
+
+  <meta property="og:title" content="Robi — All-in-One Discord Bot" />
+  <meta property="og:description" content="The only Discord bot you'll ever need." />
+  <meta property="og:image" content="assets/robi-icon.png" /> <!-- Preview image -->
+  <meta property="og:type" content="website" />
+  <!-- TEMPLATE: Replace the URL below with your actual website domain -->
+  <meta property="og:url" content="https://your-website.com" />
+
+  <!-- ============================================================ -->
+  <!-- FONTS -->
+  <!-- Using Syne (display) + DM Sans (body) for a modern techy feel -->
+  <!-- TEMPLATE: You can replace these with any Google Fonts pair -->
+  <!-- ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- ============================================================ -->
+  <!-- STYLESHEETS -->
+  <!-- Load order matters: style → animations → components -->
+  <!-- ============================================================ -->
+
+  <!-- Core CSS variables, resets, and layout -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- All keyframe animations (fade, wave, flicker, sparkle, etc.) -->
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <!-- Component-level styles (navbar, buttons, cards, footer) -->
+  <link rel="stylesheet" href="css/components.css" />
 </head>
 
 <body>
 
-    <!-- ================================================= -->
-    <!-- FLOATING BACKGROUND EFFECTS                       -->
-    <!-- Generated dynamically with JavaScript            -->
-    <!-- ================================================= -->
+  <!-- ============================================================ -->
+  <!-- BACKGROUND BUBBLES -->
+  <!-- Floating blurred circles that drift in the background -->
+  <!-- These are injected and animated via main.js -->
+  <!-- TEMPLATE: To add more bubbles, increase bubbleCount in main.js -->
+  <!-- ============================================================ -->
+  <div id="bubble-container" aria-hidden="true"></div>
 
-    <div id="bubbles-container"></div>
 
-    <!-- ================================================= -->
-    <!-- NAVBAR                                            -->
-    <!-- ================================================= -->
+  <!-- ============================================================ -->
+  <!-- TOP NAVIGATION BAR -->
+  <!-- Fixed at the top with blur backdrop effect -->
+  <!-- ============================================================ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
 
-    <nav class="navbar">
+    <!-- Left side: Bot name with gradient color (static, not animated) -->
+    <div class="navbar__brand">
+      <!-- TEMPLATE: Change "Robi" to your bot's name -->
+      <span class="gradient-text">Robi</span>
+    </div>
 
-        <!-- Logo Text -->
-        <div class="navbar-logo">
-            Robi
-        </div>
+    <!-- Right side: Action buttons -->
+    <div class="navbar__actions">
 
-        <!-- Right Buttons -->
-        <div class="navbar-buttons">
+      <!-- Primary CTA: Invite button -->
+      <!-- TEMPLATE: Replace href with your actual bot invite link -->
+      
+        href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+        class="btn btn--primary"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Invite Robi to your server"
+      >
+        Invite
+      </a>
 
-            <!-- Invite Button -->
-            <a href="#" class="btn-primary">
-                Invite
-            </a>
+      <!-- Secondary CTA: Support server button -->
+      <!-- TEMPLATE: Replace href with your actual Discord support server invite -->
+      
+        href="https://discord.gg/YOUR_INVITE_CODE"
+        class="btn btn--secondary"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Join the support server"
+      >
+        Support
+      </a>
 
-            <!-- Support Button -->
-            <a href="#" class="btn-secondary">
-                Support
-            </a>
+    </div>
+  </nav>
 
-        </div>
 
-    </nav>
+  <!-- ============================================================ -->
+  <!-- HERO SECTION (Front Page) -->
+  <!-- Full-height opening screen with title, description, and logo -->
+  <!-- ============================================================ -->
+  <section class="hero" id="home" aria-label="Hero section">
 
-    <!-- ================================================= -->
-    <!-- HERO SECTION                                      -->
-    <!-- ================================================= -->
+    <!-- Left column: Text content -->
+    <div class="hero__content">
 
-    <section class="hero">
+      <!-- Main headline -->
+      <!-- "Introducing," is plain white; "Robi." gets animated gradient + sparkles -->
+      <h1 class="hero__title fade-in">
+        <!-- TEMPLATE: Change the intro phrase below -->
+        Introducing,
+        <!-- The animated gradient "Robi" text with sparkle wrapper -->
+        <span class="hero__robi-wrapper" id="robi-text-wrapper">
+          <!-- TEMPLATE: Change "Robi." to your bot's name -->
+          <span class="hero__robi gradient-text--animated" id="robi-hero-text">Robi.</span>
+          <!-- Sparkle particles are injected here by sparkles.js -->
+          <span class="sparkle-field" id="sparkle-field" aria-hidden="true"></span>
+        </span>
+      </h1>
 
-        <!-- Left Side -->
-        <div class="hero-content fade-section">
+      <!-- Short description beneath the title -->
+      <!-- TEMPLATE: Replace this with a real description of your bot's purpose -->
+      <p class="hero__description fade-in fade-in--delay-1">
+        The only Discord bot you'll ever need. Moderation, music, fun commands,
+        auto-roles, and much more — all packed into one seamless experience.
+      </p>
 
-            <!-- Hero Title -->
-            <h1 class="hero-title">
+      <!-- CTA Buttons beneath the description -->
+      <div class="hero__buttons fade-in fade-in--delay-2">
 
-                <span class="white-text">
-                    Introducing,
-                </span>
+        <!-- Primary invite button -->
+        <!-- TEMPLATE: Replace href with your actual bot invite link -->
+        
+          href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+          class="btn btn--primary btn--large"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <!-- TEMPLATE: You can change the label, e.g. "Add to Discord" -->
+          Invite Robi
+        </a>
 
-                <br>
+        <!-- Secondary support button -->
+        <!-- TEMPLATE: Replace href with your actual Discord support server invite -->
+        
+          href="https://discord.gg/YOUR_INVITE_CODE"
+          class="btn btn--secondary btn--large"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Support Server
+        </a>
 
-                <!-- Animated Gradient Text -->
-                <span class="gradient-text" id="robi-text">
-                    Robi
-                </span>
+      </div>
+    </div>
 
-            </h1>
+    <!-- Right column: Bot logo with hero animation and glowing shadow -->
+    <div class="hero__logo-wrapper fade-in fade-in--delay-1" aria-label="Robi bot logo">
 
-            <!-- Hero Description -->
-            <p class="hero-description">
-                The modern all-in-one Discord bot built to power moderation,
-                music, automation, utilities, community management,
-                and everything your server needs.
-            </p>
+      <!-- The glowing halo behind the logo (soft flicker animation) -->
+      <div class="hero__logo-glow" aria-hidden="true"></div>
 
-            <!-- Hero Buttons -->
-            <div class="hero-buttons">
+      <!-- The actual bot icon image -->
+      <!-- TEMPLATE: To update the logo, simply replace assets/robi-icon.png -->
+      <!-- No code changes needed — just swap the PNG file -->
+      <img
+        src="assets/robi-icon.png"
+        alt="Robi Discord Bot Logo"
+        class="hero__logo"
+        id="hero-logo"
+        draggable="false"
+      />
 
-                <a href="#" class="btn-primary">
-                    Invite Robi
-                </a>
+    </div>
+  </section>
 
-                <a href="#" class="btn-secondary">
-                    Support Server
-                </a>
 
-            </div>
+  <!-- ============================================================ -->
+  <!-- FEATURES SECTION (Middle Page) -->
+  <!-- Wave background with a slideshow of feature cards -->
+  <!-- ============================================================ -->
+  <section class="features" id="features" aria-label="Features section">
 
-        </div>
+    <!-- Top wave SVG decoration -->
+    <!-- The wave flows in from the top edge of this section -->
+    <div class="wave wave--top" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- TEMPLATE: Adjust the 'd' path to change the wave shape -->
+        <path d="M0,60 C360,120 1080,0 1440,60 L1440,0 L0,0 Z" fill="#0025fd" opacity="0.15"/>
+        <path d="M0,80 C480,0 960,120 1440,40 L1440,0 L0,0 Z" fill="#0025fd" opacity="0.08"/>
+      </svg>
+    </div>
 
-        <!-- Right Side -->
-        <div class="hero-image-container fade-section">
+    <!-- Section heading -->
+    <div class="features__header fade-in-scroll">
+      <!-- TEMPLATE: Change the heading and subtext as needed -->
+      <h2 class="features__title">Everything You Need</h2>
+      <p class="features__subtitle">Powerful features built for every Discord community.</p>
+    </div>
 
-            <!-- Logo Glow -->
-            <div class="logo-glow"></div>
+    <!-- ============================================================ -->
+    <!-- FEATURE SLIDESHOW CONTAINER -->
+    <!-- Cards cycle automatically every 3 seconds via slideshow.js -->
+    <!-- ============================================================ -->
+    <div class="slideshow" id="feature-slideshow" aria-label="Feature slideshow" role="region">
 
-            <!-- Logo -->
-            <img
-                id="hero-logo"
-                src=""
-                alt="Robi Logo"
-                class="hero-logo">
+      <!-- Slideshow track: all cards sit here side by side -->
+      <div class="slideshow__track" id="slideshow-track">
 
-        </div>
+        <!-- -------------------------------------------------------- -->
+        <!-- FEATURE CARD 1 -->
+        <!-- TEMPLATE: Duplicate this block to add a new feature card -->
+        <!-- -------------------------------------------------------- -->
+        <div class="feature-card" role="group" aria-label="Feature: Moderation">
 
-    </section>
+          <!-- 3D Illustration at the top of the card -->
+          <!-- TEMPLATE: Replace the emoji with an <img> tag pointing to your illustration -->
+          <!-- Example: <img src="assets/illustrations/moderation.png" alt="Moderation illustration" /> -->
+          <div class="feature-card__illustration" aria-hidden="true">🛡️</div>
 
-    <!-- ================================================= -->
-    <!-- TOP WAVE                                          -->
-    <!-- ================================================= -->
+          <!-- Bold white feature title -->
+          <!-- TEMPLATE: Change "Moderation" to the feature name -->
+          <h3 class="feature-card__title">Moderation</h3>
 
-    <section class="wave-top">
-
-        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-            <path
-                fill="#0025fd"
-                fill-opacity="0.25"
-                d="M0,192L60,197.3C120,203,240,213,360,202.7C480,192,600,160,720,149.3C840,139,960,149,1080,170.7C1200,192,1320,224,1380,240L1440,256L1440,320L0,320Z">
-            </path>
-        </svg>
-
-    </section>
-
-    <!-- ================================================= -->
-    <!-- FEATURES SECTION                                  -->
-    <!-- ================================================= -->
-
-    <section class="features-section">
-
-        <!-- Section Heading -->
-        <div class="section-header fade-section">
-
-            <h2>
-                Powerful Features
-            </h2>
-
-            <p>
-                Everything you need to run and grow your Discord community.
-            </p>
-
-        </div>
-
-        <!-- ============================================= -->
-        <!-- FEATURE SLIDER                                -->
-        <!-- Populated via JavaScript                      -->
-        <!-- ============================================= -->
-
-        <div class="feature-slider-container fade-section">
-
-            <!-- Feature Slide -->
-            <div class="feature-slide">
-
-                <!-- Feature Image -->
-                <img
-                    id="feature-image"
-                    src=""
-                    alt="Feature Image">
-
-                <!-- Feature Title -->
-                <h3 id="feature-title">
-                    Loading...
-                </h3>
-
-                <!-- Feature Description -->
-                <p id="feature-description">
-                    Loading feature...
-                </p>
-
-            </div>
-
-            <!-- Navigation Dots -->
-            <div id="slider-dots"></div>
-
-        </div>
-
-        <!-- ============================================= -->
-        <!-- FEATURE CARDS                                 -->
-        <!-- ============================================= -->
-
-        <div class="feature-cards">
-
-            <div class="feature-card fade-section">
-                <h3>Moderation</h3>
-                <p>Keep your community safe and organized.</p>
-            </div>
-
-            <div class="feature-card fade-section">
-                <h3>Music</h3>
-                <p>High-quality music playback controls.</p>
-            </div>
-
-            <div class="feature-card fade-section">
-                <h3>Automation</h3>
-                <p>Automate repetitive server tasks.</p>
-            </div>
-
-            <div class="feature-card fade-section">
-                <h3>Tickets</h3>
-                <p>Professional support ticket systems.</p>
-            </div>
-
-            <div class="feature-card fade-section">
-                <h3>Utilities</h3>
-                <p>Useful commands for your members.</p>
-            </div>
-
-            <div class="feature-card fade-section">
-                <h3>Dashboard</h3>
-                <p>Manage everything from one place.</p>
-            </div>
+          <!-- Feature description in #0025fd color -->
+          <!-- TEMPLATE: Write a short description of the feature here -->
+          <p class="feature-card__description">
+            Keep your server safe with powerful mod tools — kick, ban, mute,
+            warn, auto-mod filters, and detailed logs.
+          </p>
 
         </div>
+        <!-- END FEATURE CARD 1 -->
 
-    </section>
+        <!-- -------------------------------------------------------- -->
+        <!-- FEATURE CARD 2 -->
+        <!-- TEMPLATE: Duplicate this block to add a new feature card -->
+        <!-- -------------------------------------------------------- -->
+        <div class="feature-card" role="group" aria-label="Feature: Music">
 
-    <!-- ================================================= -->
-    <!-- BOTTOM WAVE                                       -->
-    <!-- ================================================= -->
+          <!-- TEMPLATE: Replace emoji with your illustration image -->
+          <div class="feature-card__illustration" aria-hidden="true">🎵</div>
 
-    <section class="wave-bottom">
+          <!-- TEMPLATE: Change feature title -->
+          <h3 class="feature-card__title">Music</h3>
 
-        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-            <path
-                fill="#0025fd"
-                fill-opacity="0.25"
-                d="M0,128L60,144C120,160,240,192,360,197.3C480,203,600,181,720,160C840,139,960,117,1080,122.7C1200,128,1320,160,1380,176L1440,192L1440,320L0,320Z">
-            </path>
-        </svg>
-
-    </section>
-
-    <!-- ================================================= -->
-    <!-- CALL TO ACTION                                    -->
-    <!-- ================================================= -->
-
-    <section class="cta-section fade-section">
-
-        <h2 class="cta-title">
-            Ready to try, Robi?
-        </h2>
-
-        <p>
-            Bring powerful moderation, music, automation,
-            and utilities to your Discord server today.
-        </p>
-
-        <div class="cta-buttons">
-
-            <a href="#" class="btn-primary">
-                Invite Robi
-            </a>
-
-            <a href="#" class="btn-secondary">
-                Support Server
-            </a>
+          <!-- TEMPLATE: Change feature description -->
+          <p class="feature-card__description">
+            High-quality music playback from YouTube, Spotify, and SoundCloud.
+            Queues, filters, and DJ role support included.
+          </p>
 
         </div>
+        <!-- END FEATURE CARD 2 -->
 
-    </section>
+        <!-- -------------------------------------------------------- -->
+        <!-- FEATURE CARD 3 -->
+        <!-- TEMPLATE: Duplicate this block to add a new feature card -->
+        <!-- -------------------------------------------------------- -->
+        <div class="feature-card" role="group" aria-label="Feature: Fun Commands">
 
-    <!-- ================================================= -->
-    <!-- FOOTER                                            -->
-    <!-- ================================================= -->
+          <!-- TEMPLATE: Replace emoji with your illustration image -->
+          <div class="feature-card__illustration" aria-hidden="true">🎮</div>
 
-    <footer>
+          <!-- TEMPLATE: Change feature title -->
+          <h3 class="feature-card__title">Fun Commands</h3>
 
-        <p>
-            © 2026 Robi. All rights reserved.
-        </p>
-
-        <div class="footer-links">
-
-            <a href="#">
-                Discord
-            </a>
-
-            <a href="#">
-                GitHub
-            </a>
-
-            <a href="#">
-                Website
-            </a>
+          <!-- TEMPLATE: Change feature description -->
+          <p class="feature-card__description">
+            Memes, trivia, mini-games, polls, and more. Keep your community
+            entertained around the clock.
+          </p>
 
         </div>
+        <!-- END FEATURE CARD 3 -->
 
-    </footer>
+        <!-- -------------------------------------------------------- -->
+        <!-- FEATURE CARD 4 -->
+        <!-- TEMPLATE: Duplicate this block to add a new feature card -->
+        <!-- -------------------------------------------------------- -->
+        <div class="feature-card" role="group" aria-label="Feature: Auto Roles">
 
-    <!-- ================================================= -->
-    <!-- MAIN JAVASCRIPT                                   -->
-    <!-- ================================================= -->
+          <!-- TEMPLATE: Replace emoji with your illustration image -->
+          <div class="feature-card__illustration" aria-hidden="true">🎭</div>
 
-    <script src="script.js"></script>
+          <!-- TEMPLATE: Change feature title -->
+          <h3 class="feature-card__title">Auto Roles</h3>
+
+          <!-- TEMPLATE: Change feature description -->
+          <p class="feature-card__description">
+            Automatically assign roles on join, through reactions, or via
+            level thresholds. Full control, zero hassle.
+          </p>
+
+        </div>
+        <!-- END FEATURE CARD 4 -->
+
+        <!-- -------------------------------------------------------- -->
+        <!-- FEATURE CARD 5 -->
+        <!-- TEMPLATE: Duplicate this block to add a new feature card -->
+        <!-- -------------------------------------------------------- -->
+        <div class="feature-card" role="group" aria-label="Feature: Leveling">
+
+          <!-- TEMPLATE: Replace emoji with your illustration image -->
+          <div class="feature-card__illustration" aria-hidden="true">📈</div>
+
+          <!-- TEMPLATE: Change feature title -->
+          <h3 class="feature-card__title">Leveling</h3>
+
+          <!-- TEMPLATE: Change feature description -->
+          <p class="feature-card__description">
+            XP-based leveling system with custom rank cards, leaderboards,
+            and level-up announcements to reward active members.
+          </p>
+
+        </div>
+        <!-- END FEATURE CARD 5 -->
+
+      </div>
+      <!-- END slideshow__track -->
+
+      <!-- Dot navigation indicators for the slideshow -->
+      <!-- These are generated automatically by slideshow.js -->
+      <!-- TEMPLATE: Styling for dots is in components.css under .slideshow__dots -->
+      <div class="slideshow__dots" id="slideshow-dots" role="tablist" aria-label="Slideshow navigation"></div>
+
+    </div>
+    <!-- END feature-slideshow -->
+
+    <!-- Bottom wave SVG decoration -->
+    <div class="wave wave--bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- TEMPLATE: Adjust the 'd' path to change the wave shape -->
+        <path d="M0,40 C480,120 960,0 1440,80 L1440,120 L0,120 Z" fill="#0025fd" opacity="0.15"/>
+        <path d="M0,60 C360,0 1080,120 1440,60 L1440,120 L0,120 Z" fill="#0025fd" opacity="0.08"/>
+      </svg>
+    </div>
+
+  </section>
+  <!-- END FEATURES SECTION -->
+
+
+  <!-- ============================================================ -->
+  <!-- FOOTER / CALL TO ACTION SECTION -->
+  <!-- Final prompt to invite the bot with gradient heading -->
+  <!-- ============================================================ -->
+  <footer class="footer" id="footer" role="contentinfo" aria-label="Footer call to action">
+
+    <!-- Gradient heading with animated gradient (same as hero "Robi") -->
+    <!-- TEMPLATE: Change this text to a different CTA phrase if desired -->
+    <h2 class="footer__heading fade-in-scroll">
+      Ready to try,
+      <!-- Animated gradient "Robi?" text -->
+      <span class="gradient-text--animated">Robi?</span>
+    </h2>
+
+    <!-- Short footer subtext -->
+    <!-- TEMPLATE: Customize this tagline -->
+    <p class="footer__subtext fade-in-scroll">
+      Join thousands of Discord servers already powered by Robi.
+    </p>
+
+    <!-- Footer CTA buttons -->
+    <div class="footer__buttons fade-in-scroll">
+
+      <!-- Primary invite button -->
+      <!-- TEMPLATE: Replace href with your actual bot invite link -->
+      
+        href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+        class="btn btn--primary btn--large"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Invite Robi
+      </a>
+
+      <!-- Secondary support button -->
+      <!-- TEMPLATE: Replace href with your actual support server invite -->
+      
+        href="https://discord.gg/YOUR_INVITE_CODE"
+        class="btn btn--secondary btn--large"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Support Server
+      </a>
+
+    </div>
+
+    <!-- Bottom footer bar: copyright and optional links -->
+    <div class="footer__bar">
+
+      <!-- TEMPLATE: Replace "Robi Bot Team" with your actual team/org name -->
+      <!-- TEMPLATE: Update the year or make it dynamic via JS if desired -->
+      <p class="footer__copy">&copy; 2025 Robi Bot Team. All rights reserved.</p>
+
+      <!-- TEMPLATE: Add or remove links below as needed -->
+      <!-- Example: Privacy Policy, Terms of Service, etc. -->
+      <nav class="footer__links" aria-label="Footer links">
+        <!-- TEMPLATE: Replace # with actual URLs -->
+        <a href="#" class="footer__link">Privacy Policy</a>
+        <a href="#" class="footer__link">Terms of Service</a>
+      </nav>
+
+    </div>
+
+  </footer>
+  <!-- END FOOTER -->
+
+
+  <!-- ============================================================ -->
+  <!-- JAVASCRIPT FILES -->
+  <!-- Loaded at the bottom so HTML is parsed before scripts run -->
+  <!-- ============================================================ -->
+
+  <!-- Core logic: scroll observer, bubble spawner, navbar behavior -->
+  <script src="js/main.js"></script>
+
+  <!-- Feature slideshow: auto-advance every 3s, dot navigation -->
+  <script src="js/slideshow.js"></script>
+
+  <!-- Sparkle particle effect around the hero "Robi." text -->
+  <script src="js/sparkles.js"></script>
 
 </body>
-
 </html>
