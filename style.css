@@ -230,10 +230,6 @@ body {
     -webkit-text-fill-color: transparent;
 
     display: inline-block;
-
-    animation:
-        heroRotate 10s linear infinite,
-        heroFloat 4s ease-in-out infinite;
 }
 
 @keyframes heroRotate {
