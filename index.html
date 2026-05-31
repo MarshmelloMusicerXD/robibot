@@ -1,1 +1,319 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Page Settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Website Title -->
+    <title>Robi | Discord All-in-One Bot</title>
+
+    <!-- Website Description -->
+    <meta name="description"
+        content="Robi is a powerful Discord all-in-one bot with moderation, music, automation, utilities, and more.">
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font Family -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================================================= -->
+    <!-- FLOATING BACKGROUND EFFECTS                       -->
+    <!-- Generated dynamically with JavaScript            -->
+    <!-- ================================================= -->
+
+    <div id="bubbles-container"></div>
+
+    <!-- ================================================= -->
+    <!-- NAVBAR                                            -->
+    <!-- ================================================= -->
+
+    <nav class="navbar">
+
+        <!-- Logo Text -->
+        <div class="navbar-logo">
+            Robi
+        </div>
+
+        <!-- Right Buttons -->
+        <div class="navbar-buttons">
+
+            <!-- Invite Button -->
+            <a href="#" class="btn-primary">
+                Invite
+            </a>
+
+            <!-- Support Button -->
+            <a href="#" class="btn-secondary">
+                Support
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- ================================================= -->
+    <!-- HERO SECTION                                      -->
+    <!-- ================================================= -->
+
+    <section class="hero">
+
+        <!-- Left Side -->
+        <div class="hero-content fade-section">
+
+            <!-- Hero Title -->
+            <h1 class="hero-title">
+
+                <span class="white-text">
+                    Introducing,
+                </span>
+
+                <br>
+
+                <!-- Animated Gradient Text -->
+                <span class="gradient-text" id="robi-text">
+                    Robi
+                </span>
+
+            </h1>
+
+            <!-- Hero Description -->
+            <p class="hero-description">
+                The modern all-in-one Discord bot built to power moderation,
+                music, automation, utilities, community management,
+                and everything your server needs.
+            </p>
+
+            <!-- Hero Buttons -->
+            <div class="hero-buttons">
+
+                <a href="#" class="btn-primary">
+                    Invite Robi
+                </a>
+
+                <a href="#" class="btn-secondary">
+                    Support Server
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+        <div class="hero-image-container fade-section">
+
+            <!-- Logo Glow -->
+            <div class="logo-glow"></div>
+
+            <!-- Logo -->
+            <img
+                id="hero-logo"
+                src=""
+                alt="Robi Logo"
+                class="hero-logo">
+
+        </div>
+
+    </section>
+
+    <!-- ================================================= -->
+    <!-- TOP WAVE                                          -->
+    <!-- ================================================= -->
+
+    <section class="wave-top">
+
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path
+                fill="#0025fd"
+                fill-opacity="0.25"
+                d="M0,192L60,197.3C120,203,240,213,360,202.7C480,192,600,160,720,149.3C840,139,960,149,1080,170.7C1200,192,1320,224,1380,240L1440,256L1440,320L0,320Z">
+            </path>
+        </svg>
+
+    </section>
+
+    <!-- ================================================= -->
+    <!-- FEATURES SECTION                                  -->
+    <!-- ================================================= -->
+
+    <section class="features-section">
+
+        <!-- Section Heading -->
+        <div class="section-header fade-section">
+
+            <h2>
+                Powerful Features
+            </h2>
+
+            <p>
+                Everything you need to run and grow your Discord community.
+            </p>
+
+        </div>
+
+        <!-- ============================================= -->
+        <!-- FEATURE SLIDER                                -->
+        <!-- Populated via JavaScript                      -->
+        <!-- ============================================= -->
+
+        <div class="feature-slider-container fade-section">
+
+            <!-- Feature Slide -->
+            <div class="feature-slide">
+
+                <!-- Feature Image -->
+                <img
+                    id="feature-image"
+                    src=""
+                    alt="Feature Image">
+
+                <!-- Feature Title -->
+                <h3 id="feature-title">
+                    Loading...
+                </h3>
+
+                <!-- Feature Description -->
+                <p id="feature-description">
+                    Loading feature...
+                </p>
+
+            </div>
+
+            <!-- Navigation Dots -->
+            <div id="slider-dots"></div>
+
+        </div>
+
+        <!-- ============================================= -->
+        <!-- FEATURE CARDS                                 -->
+        <!-- ============================================= -->
+
+        <div class="feature-cards">
+
+            <div class="feature-card fade-section">
+                <h3>Moderation</h3>
+                <p>Keep your community safe and organized.</p>
+            </div>
+
+            <div class="feature-card fade-section">
+                <h3>Music</h3>
+                <p>High-quality music playback controls.</p>
+            </div>
+
+            <div class="feature-card fade-section">
+                <h3>Automation</h3>
+                <p>Automate repetitive server tasks.</p>
+            </div>
+
+            <div class="feature-card fade-section">
+                <h3>Tickets</h3>
+                <p>Professional support ticket systems.</p>
+            </div>
+
+            <div class="feature-card fade-section">
+                <h3>Utilities</h3>
+                <p>Useful commands for your members.</p>
+            </div>
+
+            <div class="feature-card fade-section">
+                <h3>Dashboard</h3>
+                <p>Manage everything from one place.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================================================= -->
+    <!-- BOTTOM WAVE                                       -->
+    <!-- ================================================= -->
+
+    <section class="wave-bottom">
+
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path
+                fill="#0025fd"
+                fill-opacity="0.25"
+                d="M0,128L60,144C120,160,240,192,360,197.3C480,203,600,181,720,160C840,139,960,117,1080,122.7C1200,128,1320,160,1380,176L1440,192L1440,320L0,320Z">
+            </path>
+        </svg>
+
+    </section>
+
+    <!-- ================================================= -->
+    <!-- CALL TO ACTION                                    -->
+    <!-- ================================================= -->
+
+    <section class="cta-section fade-section">
+
+        <h2 class="cta-title">
+            Ready to try, Robi?
+        </h2>
+
+        <p>
+            Bring powerful moderation, music, automation,
+            and utilities to your Discord server today.
+        </p>
+
+        <div class="cta-buttons">
+
+            <a href="#" class="btn-primary">
+                Invite Robi
+            </a>
+
+            <a href="#" class="btn-secondary">
+                Support Server
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ================================================= -->
+    <!-- FOOTER                                            -->
+    <!-- ================================================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Robi. All rights reserved.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="#">
+                Discord
+            </a>
+
+            <a href="#">
+                GitHub
+            </a>
+
+            <a href="#">
+                Website
+            </a>
+
+        </div>
+
+    </footer>
+
+    <!-- ================================================= -->
+    <!-- MAIN JAVASCRIPT                                   -->
+    <!-- ================================================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
