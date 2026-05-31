@@ -18,17 +18,17 @@ const supportLink =
 /* Feature Slideshow Data */
 const features = [
   {
-    title: "Moderation",
+    title: "Advanced Moderation",
     description:
-      "Powerful moderation tools including automod, warnings, logging, anti-spam, anti-raid, and advanced role management.",
+      "Keep your server safe and organized with powerful moderation tools.",
     image:
       "https://placehold.co/500x300/png?text=Moderation"
   },
 
   {
-    title: "Music",
+    title: "Smart Ticket System",
     description:
-      "High-quality music playback with queue management, playlists, filters, looping, and more.",
+      "Provide professional support fully automated ticket system.",
     image:
       "https://placehold.co/500x300/png?text=Music"
   },
@@ -42,17 +42,17 @@ const features = [
   },
 
   {
-    title: "Utilities",
+    title: "Giveaways",
     description:
-      "Useful commands and tools designed to improve your community experience.",
+      "Host exciting giveaways in seconds.",
     image:
       "https://placehold.co/500x300/png?text=Utilities"
   },
 
   {
-    title: "Dashboard",
+    title: "Verification",
     description:
-      "Control every aspect of Robi through a clean and powerful web dashboard.",
+      "Protect your server from spam accounts and unwanted users.",
     image:
       "https://placehold.co/500x300/png?text=Dashboard"
   }
