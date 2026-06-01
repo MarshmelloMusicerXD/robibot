@@ -9,7 +9,7 @@ const logoUrl =
 
 /* Invite Button Link */
 const inviteLink =
-  "https://discord.com/oauth2/authorize";
+  "https://discord.com/oauth2/authorize?client_id=1043593678305894461&permissions=1633131293846&integration_type=0&scope=bot";
 
 /* Support Server Link */
 const supportLink =
