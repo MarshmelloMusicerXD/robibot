@@ -34,11 +34,11 @@ const features = [
   },
 
   {
-    title: "Automation",
+    title: "Leveling & Ranking",
     description:
-      "Automate repetitive tasks using welcome systems, auto roles, reminders, scheduled messages, and more.",
+      "Reward active members with XP, ranks, and role rewards.",
     image:
-      "https://placehold.co/500x300/png?text=Automation"
+      "https://cdn.discordapp.com/attachments/1044971082970583061/1510755119111733328/1000409268-removebg-preview.png?ex=6a1ea098&is=6a1d4f18&hm=0a1dc2c174c65e9eab91cf0b60d3e217970f6e7c04f9fb034c8fa2680ad97ccc&"
   },
 
   {
