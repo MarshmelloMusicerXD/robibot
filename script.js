@@ -5,7 +5,7 @@
 
 /* Bot Logo URL */
 const logoUrl =
-  "https://cdn.discordapp.com/attachments/1045064396726083675/1068646904294031400/OuO.png";
+  "https://cdn.discordapp.com/attachments/1044971082970583061/1510968677481189438/OuO.png?ex=6a1ebebd&is=6a1d6d3d&hm=7842c48c1766edf82ebdd5bb9063bb1e1210b8b11a8c407d907f33debbfea1cd&";
 
 /* Invite Button Link */
 const inviteLink =
