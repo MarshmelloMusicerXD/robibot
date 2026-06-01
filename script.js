@@ -22,7 +22,7 @@ const features = [
     description:
       "Keep your server safe and organized with powerful moderation tools.",
     image:
-      "https://placehold.co/500x300/png?text=Moderation"
+      "https://cdn.discordapp.com/attachments/1044971082970583061/1510754601727688887/1000409262-removebg-preview.png?ex=6a1ea01d&is=6a1d4e9d&hm=260ad12a6a6264d27051e39d1687bebd5238de65ed0859221ef26952a1ecf8e8&"
   },
 
   {
