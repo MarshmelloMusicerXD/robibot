@@ -46,7 +46,7 @@ const features = [
     description:
       "Host exciting giveaways in seconds.",
     image:
-      "https://placehold.co/500x300/png?text=Utilities"
+      "https://cdn.discordapp.com/attachments/1044971082970583061/1510754602348314685/giveaway-cyber-monday-3d-illustration-free-png.png?ex=6a1ea01d&is=6a1d4e9d&hm=6fb30eef4034e1767de47ffc02f0789d23bb057416590ef0b11bfe36a5e65fdc&"
   },
 
   {
@@ -54,7 +54,7 @@ const features = [
     description:
       "Protect your server from spam accounts and unwanted users.",
     image:
-      "https://placehold.co/500x300/png?text=Dashboard"
+      "https://cdn.discordapp.com/attachments/1044971082970583061/1510754602612686908/1000409266-removebg-preview.png?ex=6a1ea01d&is=6a1d4e9d&hm=8f41efbac16f93499cdda8e5a592cf4128621ca08761043e241ae85426996ab7&"
   }
 ];
 
