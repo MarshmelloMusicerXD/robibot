@@ -30,7 +30,7 @@ const features = [
     description:
       "Provide professional support fully automated ticket system.",
     image:
-      "https://placehold.co/500x300/png?text=Music"
+      "https://cdn.discordapp.com/attachments/1044971082970583061/1510754602033746030/pngtree-modern-transparent-and-gold-3d-render-ticket-icon-png-image_16627874.webp?ex=6a1ea01d&is=6a1d4e9d&hm=e054ab22591e3c6f54d6ba8f756b4f141bd0d857c8e54e4f9020e10bea5bbc06&"
   },
 
   {
