@@ -13,7 +13,7 @@ const inviteLink =
 
 /* Support Server Link */
 const supportLink =
-  "https://discord.gg/example";
+  "https://discord.gg/8tztvYXaJb";
 
 /* Feature Slideshow Data */
 const features = [
